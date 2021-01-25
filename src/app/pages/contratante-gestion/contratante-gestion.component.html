@@ -1,0 +1,95 @@
+
+<h1> Contratante <small>Nombre </small> </h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger"
+                routerLink="/contratantesGestion">
+                <i class="fa fa-arrow-left"></i>
+                Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row ">
+    <form (ngSubmit)="guardar( f )"
+            #f="ngForm">
+        <div class="form-group">
+             <label>ID</label>
+             <input type="text"
+                    class="form-control"
+                    disabled="disabled"
+                    placeholder="ID"
+                    [(ngModel)]="contratantesGestion.ID"
+                    name="ID"
+                    disabled="disabled">
+             <small class="form-text text-muted">Èste es autogen</small>       
+        </div>
+
+        <div class="form-group">
+            <label>Rut</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Rut Contratante"
+                   [(ngModel)]="contratantesGestion.rut"
+                   name="rut"
+                   required>
+       </div>
+
+       <div class="form-group">
+        <label>Campo 1</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Campo 1"
+               [(ngModel)]="contratantesGestion.campo1"
+               name="campo1"
+               required>
+       </div>
+       <div class="form-group">
+        <label>Campo 2</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Campo 2"
+               [(ngModel)]="contratantesGestion.campo2"
+               name="campo2"
+               required>
+       </div>       
+       <div class="form-group">
+        <label>Campo 3</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Campo 3"
+               [(ngModel)]="contratantesGestion.campo3"
+               name="campo3"
+               required>
+       </div>       
+       <div class="form-group">
+            <label>Estado</label>
+            <br>
+            <button  *ngIf="contratantesGestion.esError"
+                     (click)="contratantesGestion.esError = false"
+                     class="btn btn-outline-success w-50" type="button">
+                <i class="fa fa-smile-wink"></i>
+                Vivo
+            </button>
+
+            <button  *ngIf="!contratantesGestion.esError"
+                     (click)="contratantesGestion.esError = true"
+                     class="btn btn-outline-danger w-50" type="button">
+                <i class="fa fa-dizzy"></i>
+                Muerto
+            </button>
+       </div>
+
+        <hr>
+
+        <div class="form-group text-center">
+            <button type="submit"
+                    class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+            </button>
+        </div>
+    </form>
+</div>    
